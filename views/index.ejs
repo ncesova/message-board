@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Message board</title>
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
     <header>
@@ -12,9 +12,8 @@
       <h3><a href="/new">Send a message</a></h3>
     </header>
     <div class="feed">
-      <% for(let i = 0; i<messages.length; i++){ %>
-        <%- include("message", {message: messages[i]})%>
-      <% } %>
+      <% for(i = messages.length - 1; i >= 0; i--){ %> <%- include("message",
+      {message: messages[i]})%> <% } %>
     </div>
   </body>
 </html>
