@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  padding: 2rem;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.message {
+  display: grid;
+  grid-template-rows: fit-content 32px;
+  padding: 1rem;
+  border-radius: 16px;
+  background-color: lightsteelblue;
+}
+
+.message__text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 16px;
+}
+
+.message__info {
+  color: grey;
+}
+
+.message__info__author {
+  color: red;
+}
+
+.message__info__time {
+  color: blue;
+}
