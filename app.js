@@ -1,7 +1,7 @@
 const express = require("express");
 const favicon = require("serve-favicon");
 const path = require("node:path");
-const indexRouter = require("./routes/indexRouter");
+const indexRouter = require("./src/routes/indexRouter");
 
 const app = express();
 const PORT = 3000;
