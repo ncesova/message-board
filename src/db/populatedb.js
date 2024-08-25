@@ -1,10 +1,10 @@
 const {Client} = require("pg");
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
-  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  message STRING,
+  id VARCHAR (255) PRIMARY KEY,
+  message VARCHAR (255),
   username VARCHAR ( 255 ),
-  date DATETIME
+  date TIMESTAMP
 );`;
 
 async function main() {

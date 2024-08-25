@@ -5,9 +5,9 @@ const indexRouter = require("./src/routes/indexRouter");
 
 const app = express();
 const PORT = 3000;
-const assetsPath = path.join(__dirname, "public");
+const assetsPath = path.join(__dirname, "/public");
 
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "ejs");
 
 app.use(express.static(assetsPath));

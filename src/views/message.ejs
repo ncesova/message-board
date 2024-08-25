@@ -1,8 +1,8 @@
 <div class="message">
-  <p class="message__text"><%= message.text %></p>
+  <p class="message__text"><%= message.message %></p>
   <span class="message__info">
-    By <span class="message__info__author"><%= message.user %></span> at
+    By <span class="message__info__author"><%= message.username %></span> at
     <span class="message__info__time"> <%= message.added %> </span>
   </span>
-  <a class="message__link" href="/message/<%= message.id%>">See more</a>
+  <a class="message__link" href="/message/ <%= message.id%>">See more</a>
 </div>
