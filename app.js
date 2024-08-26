@@ -2,6 +2,7 @@ const express = require("express");
 const favicon = require("serve-favicon");
 const path = require("node:path");
 const indexRouter = require("./src/routes/indexRouter");
+const main = require("./src/db/populatedb");
 
 const app = express();
 const PORT = 3000;
@@ -16,6 +17,8 @@ app.use(favicon(path.join(__dirname, "favicon.ico")));
 
 app.use("/", indexRouter);
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+main().then((res) => {
+  app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+  });
 });

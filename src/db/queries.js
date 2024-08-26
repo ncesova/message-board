@@ -13,23 +13,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const pool_1 = __importDefault(require("./pool"));
+const fecha_1 = require("fecha");
 function getAllMessages() {
     return __awaiter(this, void 0, void 0, function* () {
         const { rows } = yield pool_1.default.query("SELECT * FROM messages");
         const mappedMessages = rows.map((item) => {
-            return Object.assign(Object.assign({}, item), { added: item.date.toString() });
+            return Object.assign(Object.assign({}, item), { added: (0, fecha_1.format)(item.date, "YYYY-MM-DD HH:mm:ss") });
         });
         return mappedMessages;
     });
 }
 function insertMessage(_a) {
     return __awaiter(this, arguments, void 0, function* ({ id, message, username, added }) {
-        yield pool_1.default.query("INSERT INTO messages VALUES ($1, $2, $3, DATE($4))", [
-            id,
-            message,
-            username,
-            added,
-        ]);
+        yield pool_1.default.query("INSERT INTO messages VALUES ($1, $2, $3, TO_TIMESTAMP($4, 'YYYY-MM-DD HH:MI:SS'))", [id, message, username, added]);
     });
 }
 function getMessageById(id) {

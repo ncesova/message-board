@@ -3,7 +3,7 @@ const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
   id VARCHAR (255) PRIMARY KEY,
   message VARCHAR (255),
-  username VARCHAR ( 255 ),
+  username VARCHAR (255),
   date TIMESTAMP
 );`;
 
@@ -18,4 +18,4 @@ async function main() {
   console.log("done");
 }
 
-main();
+module.exports = main;
